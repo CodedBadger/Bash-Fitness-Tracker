@@ -1,7 +1,29 @@
 #!/bin/bash
 
 mainScreen(){
-  echo "create the main screen"
+  
+  read -p "What wouldyou like to do?
+  Log Workout
+  Get Summary
+  GetRoutine
+        " local userInput
+  case "${userInput,,}" in
+    'log workout')
+      exerciseLoggerV2
+      ;;
+    'Get Summary')
+      echo "get a summary of a routine"
+      ;;
+    'get rountine')
+      echo "Get a routine from a lib"
+      ;;
+    *)
+      echo "Choice not recognized"
+      mainScreen
+      ;;
+    esac
+
+
 }
 
 validateExercise(){
