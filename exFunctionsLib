@@ -1,0 +1,25 @@
+#!/bin/bash
+validateExercise(){
+ echo "hello" 
+}
+exerciseLoggerV2(){
+  local numExercise i date exercises entry
+  local exercise weight sets reps
+  read -p "How many exercises did you perform? " numExercises
+  i=1
+  date="$(date "+%A %B %D")"
+
+  exercises=()
+  while [[ "$i" -le "$numExercises" ]]; do 
+      read -p "Please enter your exercise: " exercise
+      read -p "Please enter your weight: " weight
+      read -p "Please enter your sets: " sets
+      read -p "Please enter your reps: " reps
+      exercises+=("{\"exercise-$i\": \"$exercise\", \"weight\": $weight, \"sets\": $sets, \"reps\": $reps}")
+    ((i++))
+  done
+
+  entry=$(IFS=,; echo "${exercises[*]}")
+
+  echo "{\"date\": \"$date\", \"exercises\": [ $entry] }" >>exerciselog.json
+}
