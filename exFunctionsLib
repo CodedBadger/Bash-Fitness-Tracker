@@ -1,7 +1,31 @@
 #!/bin/bash
-validateExercise(){
- echo "hello" 
+
+mainScreen(){
+  echo "create the main screen"
 }
+
+validateExercise(){
+  searchExercise=$(grep -i "${exercise}" exerciseLibBasic)
+  case "${searchExercise,,}" in
+    "")
+        echo "No exercises listed as $exercise"
+        echo "add option to add exercise function here"
+        echo "find out how to remove accidents"
+        ;;
+      *)
+        echo "Exercise found in library!"
+        ;;
+    esac
+}
+
+addExercise(){
+  echo "append exercises to exerciseLibBasic"
+}
+
+removeExercise(){
+  echo "remove exercises from lib"
+}
+
 exerciseLoggerV2(){
   local numExercise i date exercises entry
   local exercise weight sets reps
@@ -12,6 +36,7 @@ exerciseLoggerV2(){
   exercises=()
   while [[ "$i" -le "$numExercises" ]]; do 
       read -p "Please enter your exercise: " exercise
+      validateExercise
       read -p "Please enter your weight: " weight
       read -p "Please enter your sets: " sets
       read -p "Please enter your reps: " reps
