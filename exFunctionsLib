@@ -2,20 +2,25 @@
 
 mainScreen(){
   
-  read -p "What wouldyou like to do?
+local userInput
+  echo "What would you like to do?
   Log Workout
   Get Summary
-  GetRoutine
-        " local userInput
-  case "${userInput,,}" in
+  GetRoutine"
+
+read -r userInput
+  case "${userInput}" in
     'log workout')
       exerciseLoggerV2
       ;;
     'Get Summary')
       echo "get a summary of a routine"
       ;;
-    'get rountine')
+    'get routine')
       echo "Get a routine from a lib"
+      ;;
+    'exit')
+      exit
       ;;
     *)
       echo "Choice not recognized"
@@ -31,7 +36,13 @@ validateExercise(){
   case "${searchExercise,,}" in
     "")
         echo "No exercises listed as $exercise"
-        echo "add option to add exercise function here"
+        read -p "Would you like to add an exercise?" addExerciseInput
+        if [[ "${addExerciseInput,,}" == 'yes' ]]; then
+          addExercise
+        else
+          echo 'not adding that exercise'
+        fi
+
         echo "find out how to remove accidents"
         ;;
       *)
@@ -41,7 +52,30 @@ validateExercise(){
 }
 
 addExercise(){
-  echo "append exercises to exerciseLibBasic"
+  local userExercise
+	echo "Please enter the exercise you want to add"
+	read -r userExercise
+	echo "Enter the type of exercise:
+        Compound
+        Accesory
+        Cardio"
+  read -r exerciseTpye
+  echo "What is the focus of the exercise?
+          Upper
+          Lower"
+  read -r exerciseFocus
+  echo "What is the major muscle group?
+        Full-body
+        Chest
+        Back
+        Quads
+        Hamstrings
+        Shoulders
+        Triceps
+        Biceps
+        Core"
+  read -r exerciseMuscleGroup
+
 }
 
 removeExercise(){
