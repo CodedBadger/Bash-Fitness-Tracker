@@ -1,0 +1,56 @@
+#!/bin/bash
+roundingTest(){
+  maxValue=$1
+  percentage=$2
+  weight=$(echo "scale=0; (($maxValue * $percentage + 4)/5)*5" | bc)
+  echo $weight 
+
+ #if (( result == 0 ))
+   # result="$result"
+    
+  #fi
+
+}
+
+
+variableMaker(){
+  
+  c=1
+  w=1
+  s=1
+  ex="$1"
+  
+  echo "How many cycles do you want to complete?"
+  read cycles
+
+  while (( c < cycles ));do
+    ((s++))
+    if (( s == 3 )) ;then
+      ((w++))
+      if (( w == 3 ));then
+        ((c++))
+      fi
+        if (( c == cycles ));then
+          break
+        fi
+    fi
+    var="$ex$c$w$s"
+    echo $var
+  done
+}
+variableMaker2() {
+  ex="$1"
+
+  echo "How many cycles do you want to complete?"
+  read cycles
+
+  for (( c=1; c<=cycles; c++ )); do
+    for (( w=1; w<=3; w++ )); do        # wave limit = 2
+      for (( s=1; s<=3; s++ )); do      # set limit = 2
+        var="${ex}${c}${w}${s}"
+        echo "$var"
+      done
+    done
+  done
+}
+
