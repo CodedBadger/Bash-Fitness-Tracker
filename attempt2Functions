@@ -12,43 +12,19 @@ roundingTest(){
 
 }
 
-
-variableMaker(){
-  
-  c=1
-  w=1
-  s=1
-  ex="$1"
-  
-  echo "How many cycles do you want to complete?"
-  read cycles
-
-  while (( c < cycles ));do
-    ((s++))
-    if (( s == 3 )) ;then
-      ((w++))
-      if (( w == 3 ));then
-        ((c++))
-      fi
-        if (( c == cycles ));then
-          break
-        fi
-    fi
-    var="$ex$c$w$s"
-    echo $var
-  done
-}
 variableMaker2() {
   ex="$1"
-
+  i=1
   echo "How many cycles do you want to complete?"
   read cycles
-
+    #var names should indicate exerscise,cycle,week,set SQT123 Squat cycle1 week2 set3
+    #var dec; conditions; add to var
   for (( c=1; c<=cycles; c++ )); do
-    for (( w=1; w<=3; w++ )); do        # wave limit = 2
-      for (( s=1; s<=3; s++ )); do      # set limit = 2
+    for (( w=1; w<=3; w++ )); do       
+      for (( s=1; s<=3; s++, i++ )); do     
         var="${ex}${c}${w}${s}"
-        echo "$var"
+        declare -g "$var=$((360 + $i))"
+        #echo "...${!var}..."
       done
     done
   done
