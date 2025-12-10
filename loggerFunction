@@ -1,0 +1,32 @@
+#!/bin/bash
+
+loggerFunc() {
+  read -p "How many exercises did you complete? " num_exercises
+  i=0
+  date=$(date +"%Y-%m-%d")
+  while [[ "$i" -lt "$num_exercises" ]]; do
+    read -p "Which exercise did you complete? " exercise
+    read -p "How many sets did you perform? " sets
+    read -p "How many reps did you do? " reps
+    read -p "What was the weight of the exercise? " exercise_weight
+    #want to make this $data$i then load it into entry in json?
+    # Need to store reps/sets/weights as integers more than likely. Ask ai later :)
+    data=$(
+      jq -n \
+        --arg date "$date" \
+        --arg exercise "$exercise" \
+        --arg sets "$sets" \
+        --arg reps "$reps" \
+        --arg weight "$weight" \
+        '{
+        exercise: $exercise,
+        sets: $sets,
+        reps: $reps,
+        weight: $weight
+      }'
+    )
+    ((i++))
+    echo "i:$i"
+    echo $data >>exerciseLog.json
+  done
+}
