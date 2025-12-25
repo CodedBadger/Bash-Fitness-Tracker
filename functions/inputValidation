@@ -1,0 +1,44 @@
+#!/bin/bash
+
+validateNums(){
+ validChars="$(echo $1 | sed -e 's/[^0-9]//g')"
+
+    if [[ "$validChars" = "$1" ]]; then
+      echo "VALID: $validChars"
+      #return 0
+    else
+      echo "Invalid"
+      #return 1
+    fi
+}
+
+validateAlphaNumeric(){
+ validChars="$(sed -e 's/[^[:alnum:]]//g'<<< "$1")"
+    if [[ "$validChars" = "$1" ]]; then
+      echo "VALID: $validChars"
+      #return 0
+    else
+      echo "Invalid"
+      #return 1
+    fi
+  }
+
+  validateExercise(){
+  searchExercise=$(grep -i "${exercise}" exerciseLibBasic)
+  case "${searchExercise,,}" in
+    "")
+        echo "No exercises listed as $exercise"
+        read -p "Would you like to add an exercise?" addExerciseInput
+        if [[ "${addExerciseInput,,}" == 'yes' ]]; then
+          addExercise
+        else
+          echo 'not adding that exercise'
+        fi
+
+        echo "find out how to remove accidents"
+        ;;
+      *)
+        echo "Exercise found in library!"
+        ;;
+    esac
+}

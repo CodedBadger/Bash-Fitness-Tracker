@@ -9,11 +9,11 @@ local userInput
   GetRoutine"
 
 read -r userInput
-  case "${userInput}" in
+  case "${userInput,,}" in
     'log workout')
       exerciseLoggerV2
       ;;
-    'Get Summary')
+    'get summary')
       echo "get a summary of a routine"
       ;;
     'get routine')
@@ -31,58 +31,15 @@ read -r userInput
 
 }
 
-validateExercise(){
-  searchExercise=$(grep -i "${exercise}" exerciseLibBasic)
-  case "${searchExercise,,}" in
-    "")
-        echo "No exercises listed as $exercise"
-        read -p "Would you like to add an exercise?" addExerciseInput
-        if [[ "${addExerciseInput,,}" == 'yes' ]]; then
-          addExercise
-        else
-          echo 'not adding that exercise'
-        fi
-
-        echo "find out how to remove accidents"
-        ;;
-      *)
-        echo "Exercise found in library!"
-        ;;
-    esac
-}
-
 addExercise(){
-  local userExercise
-	echo "Please enter the exercise you want to add"
-	read -r userExercise
-	echo "Enter the type of exercise:
-        Compound
-        Accesory
-        Cardio"
-  read -r exerciseTpye
-  echo "What is the focus of the exercise?
-          Upper
-          Lower"
-  read -r exerciseFocus
-  echo "What is the major muscle group?
-        Full-body
-        Chest
-        Back
-        Quads
-        Hamstrings
-        Shoulders
-        Triceps
-        Biceps
-        Core"
-  read -r exerciseMuscleGroup
-
+  echo "Should add exercises to lib"
 }
 
 removeExercise(){
   echo "remove exercises from lib"
 }
 
-exerciseLoggerV2(){
+exerciseLogger(){
   local numExercise i date exercises entry
   local exercise weight sets reps
   read -p "How many exercises did you perform? " numExercises
@@ -92,7 +49,8 @@ exerciseLoggerV2(){
   exercises=()
   while [[ "$i" -le "$numExercises" ]]; do 
       read -p "Please enter your exercise: " exercise
-      validateExercise
+      #check for only letters
+#      validateExercise
       read -p "Please enter your weight: " weight
       read -p "Please enter your sets: " sets
       read -p "Please enter your reps: " reps
@@ -104,3 +62,6 @@ exerciseLoggerV2(){
 
   echo "{\"date\": \"$date\", \"exercises\": [ $entry] }" >>exerciselog.json
 }
+
+
+mainScreen

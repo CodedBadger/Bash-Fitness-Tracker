@@ -1,0 +1,26 @@
+{
+  "lower-exercises": [
+    { "exercise": "squat", "type": "compound", "focus": "legs" },
+    { "exercise": "front-squat", "type": "compound", "focus": "legs" }
+  ],
+
+   "push-exercises": [
+    { "exercise": "bench", "type": "compound", "focus": "push" },
+    { "exercise": "push-press", "type": "compound", "focus": "push" },
+    { "exercise": "strict-press", "type": "compound", "focus": "push" }
+   ],
+   "push-accessories": [
+    { "exercise": "skull-crushers", "type": "accessory", "focus": "push" },
+    { "exercise": "dumbbell-bench", "type": "compound", "focus": "push"}
+   ],
+
+   "pull-exercises": [
+    { "exercise": "deadlift", "type": "compound", "focus": "legs" },
+    { "exercise": "bent-row", "type": "compound", "focus": "pull" }
+   ],
+   
+   "pull-accessories": [
+    { "exercise": "lat-pull-down", "type": "accessory", "focus": "pull" },
+    { "exercise": "dumbbell-row", "type": "compound", "focus": "pull" }
+   ]
+}

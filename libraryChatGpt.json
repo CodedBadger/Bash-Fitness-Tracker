@@ -1,0 +1,143 @@
+{
+  "exercises": [
+    {
+      "exercise": "back-squat",
+      "category": "legs",
+      "type": "compound",
+      "primary": "quads",
+      "secondary": ["glutes", "core"]
+    },
+    {
+      "exercise": "front-squat",
+      "category": "legs",
+      "type": "compound",
+      "primary": "quads",
+      "secondary": ["core", "upper-back"]
+    },
+    {
+      "exercise": "deadlift",
+      "category": "legs",
+      "type": "compound",
+      "primary": "glutes",
+      "secondary": ["hamstrings", "lower-back"]
+    },
+    {
+      "exercise": "romanian-deadlift",
+      "category": "legs",
+      "type": "compound",
+      "primary": "hamstrings",
+      "secondary": ["glutes", "lower-back"]
+    },
+
+    {
+      "exercise": "bench-press",
+      "category": "push",
+      "type": "compound",
+      "primary": "chest",
+      "secondary": ["triceps", "front-delts"]
+    },
+    {
+      "exercise": "push-press",
+      "category": "push",
+      "type": "compound",
+      "primary": "shoulders",
+      "secondary": ["triceps", "upper-chest"]
+    },
+    {
+      "exercise": "strict-press",
+      "category": "push",
+      "type": "compound",
+      "primary": "shoulders",
+      "secondary": ["triceps"]
+    },
+
+    {
+      "exercise": "bent-over-row",
+      "category": "pull",
+      "type": "compound",
+      "primary": "lats",
+      "secondary": ["upper-back", "biceps"]
+    },
+    {
+      "exercise": "weighted-pull-up",
+      "category": "pull",
+      "type": "compound",
+      "primary": "lats",
+      "secondary": ["biceps", "upper-back"]
+    },
+
+    {
+      "exercise": "leg-press",
+      "category": "legs",
+      "type": "accessory",
+      "primary": "quads",
+      "secondary": ["glutes"]
+    },
+    {
+      "exercise": "bulgarian-split-squat",
+      "category": "legs",
+      "type": "accessory",
+      "primary": "quads",
+      "secondary": ["glutes", "core"]
+    },
+    {
+      "exercise": "leg-curl",
+      "category": "legs",
+      "type": "accessory",
+      "primary": "hamstrings",
+      "secondary": []
+    },
+    {
+      "exercise": "calf-raise",
+      "category": "legs",
+      "type": "accessory",
+      "primary": "calves",
+      "secondary": []
+    },
+
+    {
+      "exercise": "skull-crushers",
+      "category": "push",
+      "type": "accessory",
+      "primary": "triceps",
+      "secondary": []
+    },
+    {
+      "exercise": "lateral-raises",
+      "category": "push",
+      "type": "accessory",
+      "primary": "side-delts",
+      "secondary": []
+    },
+    {
+      "exercise": "cable-fly",
+      "category": "push",
+      "type": "accessory",
+      "primary": "chest",
+      "secondary": []
+    },
+
+    {
+      "exercise": "lat-pull-down",
+      "category": "pull",
+      "type": "accessory",
+      "primary": "lats",
+      "secondary": ["biceps"]
+    },
+    {
+      "exercise": "face-pull",
+      "category": "pull",
+      "type": "accessory",
+      "primary": "rear-delts",
+      "secondary": ["upper-back"]
+    },
+    {
+      "exercise": "barbell-curl",
+      "category": "pull",
+      "type": "accessory",
+      "primary": "biceps",
+      "secondary": []
+    }
+  ]
+}
+
