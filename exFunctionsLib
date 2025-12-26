@@ -1,5 +1,7 @@
 #!/bin/bash
 
+### Screens ###
+
 mainScreen(){
 local userInput
   echo "What would you like to do?
@@ -10,7 +12,7 @@ local userInput
 read -r userInput
   case "${userInput,,}" in
     'log workout')
-      exerciseLoggerV2
+      exerciseLogger
       ;;
     'get summary')
       echo "get a summary of a routine"
@@ -29,6 +31,23 @@ read -r userInput
 
 
 }
+
+
+### SCREEN FUNCTIONS ###
+
+create_profile(){
+ echo "Please select an option
+  Create profile
+  Load profile
+  List options
+ "
+ read -r $userInput
+  
+
+ read -p "What is your name?" userName
+ #validate user name
+}
+
 
 exerciseLogger(){
   local numExercise i date exercises entry
@@ -52,6 +71,15 @@ exerciseLogger(){
   entry=$(IFS=,; echo "${exercises[*]}")
 
   echo "{\"date\": \"$date\", \"exercises\": [ $entry] }" >>exerciselog.json
+}
+
+
+validateUsername(){
+ echo "I will check if a username exists"
+}
+
+getSummary(){
+ echo "I need to finish create profile"  
 }
 
 addExercise(){
