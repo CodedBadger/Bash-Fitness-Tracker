@@ -2,6 +2,7 @@
 
 validateNums(){
  validChars="$(echo $1 | sed -e 's/[^0-9]//g')"
+ [[ -z "$1" ]] && echo "Please enter an argument!" 
 
     if [[ "$validChars" = "$1" ]]; then
       echo "VALID: $validChars"
@@ -13,6 +14,7 @@ validateNums(){
 }
 
 validateAlphaNumeric(){
+ [[ -z "$1" ]] && echo "Please enter an argument!" 
  validChars="$(sed -e 's/[^[:alnum:]]//g'<<< "$1")"
     if [[ "$validChars" = "$1" ]]; then
       echo "VALID: $validChars"
@@ -23,7 +25,8 @@ validateAlphaNumeric(){
     fi
   }
 
-  validateExercise(){
+validateExercise(){
+  [[ -z "$1" ]] && echo "Please enter an argument!" 
   searchExercise=$(grep -i "${exercise}" exerciseLibBasic)
   case "${searchExercise,,}" in
     "")

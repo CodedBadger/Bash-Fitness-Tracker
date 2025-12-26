@@ -1,7 +1,6 @@
 #!/bin/bash
 
 mainScreen(){
-  
 local userInput
   echo "What would you like to do?
   Log Workout
@@ -31,14 +30,6 @@ read -r userInput
 
 }
 
-addExercise(){
-  echo "Should add exercises to lib"
-}
-
-removeExercise(){
-  echo "remove exercises from lib"
-}
-
 exerciseLogger(){
   local numExercise i date exercises entry
   local exercise weight sets reps
@@ -63,5 +54,12 @@ exerciseLogger(){
   echo "{\"date\": \"$date\", \"exercises\": [ $entry] }" >>exerciselog.json
 }
 
+addExercise(){
+  echo "Should add exercises to lib"
+}
+
+removeExercise(){
+  echo "remove exercises from lib"
+}
 
 mainScreen
